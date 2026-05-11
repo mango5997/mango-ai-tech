@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { AiWorkflowAnimation } from "@/components/AiWorkflowAnimation";
 import { Container } from "@/components/Container";
 import { LabCard } from "@/components/LabCard";
 import { SectionTitle } from "@/components/SectionTitle";
@@ -18,6 +19,7 @@ export default function LabPage() {
           eyebrow="AI Lab"
           title="AI实验室"
         />
+        <AiWorkflowAnimation />
         <div className="grid gap-5 md:grid-cols-3">
           {labItems.map((item) => (
             <LabCard key={item.title} {...item} />
