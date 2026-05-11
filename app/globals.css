@@ -1,0 +1,91 @@
+@import "tailwindcss";
+
+:root {
+  --background: #fffaf0;
+  --foreground: #15213d;
+  --mango: #f7b731;
+  --mango-dark: #e58e26;
+  --navy: #17223b;
+  --ink: #111827;
+  --muted: #667085;
+  --line: #ece6d8;
+  --card: #ffffff;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  color: var(--foreground);
+  background:
+    linear-gradient(180deg, #fff8e8 0%, #ffffff 34%, #f7fbff 100%);
+  font-family:
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+::selection {
+  background: rgba(247, 183, 49, 0.35);
+}
+
+.focus-ring {
+  outline: none;
+}
+
+.focus-ring:focus-visible {
+  box-shadow: 0 0 0 3px rgba(247, 183, 49, 0.55);
+}
+
+.article-content h2 {
+  margin-top: 2rem;
+  color: var(--navy);
+  font-size: 1.35rem;
+  font-weight: 800;
+  line-height: 1.25;
+}
+
+.article-content h3 {
+  margin-top: 1.4rem;
+  color: var(--navy);
+  font-size: 1.05rem;
+  font-weight: 750;
+}
+
+.article-content p {
+  margin-top: 1rem;
+  color: #344054;
+  font-size: 1.05rem;
+  line-height: 1.9;
+}
+
+.article-content ul {
+  margin-top: 1rem;
+  padding-left: 1.25rem;
+  color: #344054;
+  line-height: 1.9;
+}
+
+.article-content li + li {
+  margin-top: 0.35rem;
+}
+
+.article-content strong {
+  color: var(--navy);
+  font-weight: 750;
+}
