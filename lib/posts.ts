@@ -10,6 +10,7 @@ export type PostMeta = {
   tags: string[];
   excerpt: string;
   category: PostCategory;
+  cover: string;
 };
 
 export type Post = PostMeta & {
@@ -17,6 +18,7 @@ export type Post = PostMeta & {
 };
 
 const postsDirectory = path.join(process.cwd(), "content", "posts");
+const defaultPostCover = "/mango-ai-hero.png";
 
 function stripQuotes(value: string) {
   return value.trim().replace(/^["']|["']$/g, "");
@@ -93,6 +95,10 @@ function readPost(slug: string): Post {
     tags: Array.isArray(data.tags) ? data.tags : parseList(String(data.tags)),
     excerpt: String(data.excerpt),
     category: assertCategory(data.category),
+    cover:
+      typeof data.cover === "string" && data.cover.trim()
+        ? data.cover.trim()
+        : defaultPostCover,
     content
   };
 }
@@ -109,7 +115,8 @@ export function getAllPosts(): PostMeta[] {
       date: post.date,
       tags: post.tags,
       excerpt: post.excerpt,
-      category: post.category
+      category: post.category,
+      cover: post.cover
     }));
 }
 

@@ -5,7 +5,7 @@ import { Container } from "@/components/Container";
 import { MarkdownContent } from "@/components/MarkdownContent";
 import { Tag } from "@/components/Tag";
 import { getAllPosts, getPostBySlug } from "@/lib/posts";
-import { categoryLabels } from "@/lib/site";
+import { categoryLabels, siteConfig } from "@/lib/site";
 
 type PostPageProps = {
   params: Promise<{
@@ -27,15 +27,30 @@ export async function generateMetadata({ params }: PostPageProps): Promise<Metad
     return {};
   }
 
+  const postUrl = new URL(`/posts/${post.slug}`, siteConfig.url).toString();
+  const coverUrl = new URL(post.cover, siteConfig.url).toString();
+
   return {
     title: post.title,
     description: post.excerpt,
+    alternates: {
+      canonical: postUrl
+    },
     openGraph: {
       title: post.title,
       description: post.excerpt,
+      url: postUrl,
       type: "article",
       publishedTime: post.date,
-      tags: post.tags
+      tags: post.tags,
+      images: [
+        {
+          url: coverUrl,
+          width: 1672,
+          height: 941,
+          alt: post.title
+        }
+      ]
     }
   };
 }

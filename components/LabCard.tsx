@@ -19,7 +19,7 @@ export function LabCard({ title, description, scenario, status, href }: LabCardP
         <span className="grid size-10 place-items-center rounded-xl bg-[#eefaf2] text-lg font-black text-[#17663b]">
           AI
         </span>
-        <Tag tone={status === "Demo中" ? "green" : "mango"}>{status}</Tag>
+        <Tag tone={status.includes("Demo") ? "green" : "mango"}>{status}</Tag>
       </div>
       <h3 className="text-lg font-black text-[#17223b] transition group-hover:text-[#17663b]">
         {title}

@@ -4,7 +4,7 @@ export const siteConfig = {
   title: "芒果AI科技 Mango AI Tech",
   description: "用产品经理视角，发现、解读和实验最有意思的 AI 前沿。",
   slogan: "发现有意思的 AI，拆解能落地的科技。",
-  url: "https://www.mangoaitech.cn"
+  url: process.env.NEXT_PUBLIC_SITE_URL || "https://www.mangoaitech.cn"
 };
 
 export const navItems = [
@@ -12,6 +12,7 @@ export const navItems = [
   { href: "/frontier", label: "AI前沿" },
   { href: "/principles", label: "原理解剖室" },
   { href: "/lab", label: "AI实验室" },
+  { href: "/tags", label: "标签" },
   { href: "/about", label: "关于我" }
 ];
 
@@ -27,8 +28,8 @@ export const labItems = [
     description:
       "把多来源 AI 新闻整理成一页摘要，保留事件、影响、适合谁关注和下一步动作。",
     scenario: "适合产品经理、创业者和 AI 爱好者快速追踪前沿变化。",
-    status: "Demo中",
-    href: "/posts/ai-news-summarizer-design"
+    status: "可体验 Demo",
+    href: "/lab/news-summarizer"
   },
   {
     title: "产品需求文档生成器",
