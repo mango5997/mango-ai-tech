@@ -711,3 +711,685 @@ a {
     animation: none;
   }
 }
+
+@keyframes aiConsolePanelLift {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-3px);
+  }
+}
+
+@keyframes aiConsoleInputScan {
+  0% {
+    opacity: 0;
+    transform: translateX(-120%);
+  }
+
+  18%,
+  55% {
+    opacity: 0.8;
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateX(180%);
+  }
+}
+
+@keyframes aiConsoleMobilePacket {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -22px) scale(0.78);
+  }
+
+  20%,
+  74% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    transform: translate(-50%, 42px) scale(1.05);
+  }
+}
+
+@keyframes aiConsoleCoreScan {
+  0% {
+    opacity: 0;
+    transform: translateY(-130%) rotate(12deg);
+  }
+
+  35%,
+  62% {
+    opacity: 0.9;
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateY(150%) rotate(12deg);
+  }
+}
+
+@keyframes aiConsoleProgressDot {
+  0%,
+  100% {
+    background: rgba(255, 255, 255, 0.28);
+    box-shadow: none;
+    transform: scale(0.92);
+  }
+
+  42% {
+    background: #f7b731;
+    box-shadow:
+      0 0 0 6px rgba(247, 183, 49, 0.14),
+      0 0 18px rgba(247, 183, 49, 0.82);
+    transform: scale(1.12);
+  }
+}
+
+@keyframes aiConsoleOutputGlow {
+  0% {
+    opacity: 0;
+    transform: translateX(-120%);
+  }
+
+  48% {
+    opacity: 0.55;
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateX(160%);
+  }
+}
+
+@keyframes aiConsoleOutputLineFill {
+  0%,
+  24% {
+    opacity: 0.45;
+    transform: scaleX(0.22);
+  }
+
+  62%,
+  100% {
+    opacity: 1;
+    transform: scaleX(1);
+  }
+}
+
+.ai-console-panel-input,
+.ai-console-panel-output {
+  animation: aiConsolePanelLift 5.2s ease-in-out infinite;
+}
+
+.ai-console-panel-output {
+  animation-delay: 0.7s;
+}
+
+.ai-console-input-scan {
+  position: absolute;
+  inset: 0;
+  width: 42%;
+  background: linear-gradient(90deg, transparent, rgba(247, 183, 49, 0.2), transparent);
+  content: "";
+  pointer-events: none;
+  animation: aiConsoleInputScan 4.6s ease-in-out infinite;
+}
+
+.ai-console-mobile-flow {
+  position: relative;
+  height: 3rem;
+}
+
+.ai-console-mobile-flow::before {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  height: 100%;
+  width: 2px;
+  border-radius: 999px;
+  background: linear-gradient(to bottom, transparent, rgba(247, 183, 49, 0.9), transparent);
+  content: "";
+  transform: translateX(-50%);
+}
+
+.ai-console-mobile-flow span {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  display: block;
+  height: 14px;
+  width: 14px;
+  border-radius: 999px;
+  background: #f7b731;
+  box-shadow:
+    0 0 0 7px rgba(247, 183, 49, 0.14),
+    0 0 24px rgba(247, 183, 49, 0.8);
+  animation: aiConsoleMobilePacket 2.8s ease-in-out infinite;
+}
+
+.ai-console-core {
+  overflow: hidden;
+}
+
+.ai-console-core-scan {
+  position: absolute;
+  inset: -20%;
+  background: linear-gradient(180deg, transparent 30%, rgba(247, 183, 49, 0.28), transparent 70%);
+  pointer-events: none;
+  animation: aiConsoleCoreScan 3.6s ease-in-out infinite;
+}
+
+.ai-console-progress::before {
+  position: absolute;
+  left: 12%;
+  right: 12%;
+  top: 50%;
+  height: 2px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, transparent, rgba(247, 183, 49, 0.5), transparent);
+  content: "";
+  transform: translateY(-50%);
+}
+
+.ai-console-progress-dot {
+  position: relative;
+  z-index: 1;
+  display: block;
+  height: 8px;
+  width: 8px;
+  border-radius: 999px;
+  animation: aiConsoleProgressDot 2.4s ease-in-out infinite;
+}
+
+.ai-console-output-glow {
+  position: absolute;
+  inset: 0;
+  width: 48%;
+  background: linear-gradient(90deg, transparent, rgba(36, 84, 214, 0.12), rgba(247, 183, 49, 0.16), transparent);
+  pointer-events: none;
+  animation: aiConsoleOutputGlow 4.8s ease-in-out infinite;
+}
+
+.ai-console-output-line {
+  transform-origin: left center;
+  animation: aiConsoleOutputLineFill 4.8s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ai-console-panel-input,
+  .ai-console-panel-output,
+  .ai-console-input-scan,
+  .ai-console-mobile-flow span,
+  .ai-console-core-scan,
+  .ai-console-progress-dot,
+  .ai-console-output-glow,
+  .ai-console-output-line {
+    animation: none;
+  }
+}
+
+@keyframes aiPipelineRailMove {
+  to {
+    background-position: 96px 0;
+  }
+}
+
+@keyframes aiPipelinePacketTravel {
+  0% {
+    left: 11%;
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.7);
+  }
+
+  8%,
+  88% {
+    opacity: 1;
+  }
+
+  43% {
+    left: 50%;
+    transform: translate(-50%, -50%) scale(1.1);
+  }
+
+  100% {
+    left: 89%;
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.78);
+  }
+}
+
+@keyframes aiPipelineInputCycle {
+  0%,
+  100% {
+    border-color: #f2e4c8;
+    transform: translateX(0);
+  }
+
+  18% {
+    border-color: rgba(247, 183, 49, 0.85);
+    box-shadow: 0 12px 26px rgba(247, 183, 49, 0.12);
+    transform: translateX(4px);
+  }
+}
+
+@keyframes aiPipelineInputScan {
+  0% {
+    opacity: 0;
+    transform: translateX(-130%);
+  }
+
+  20%,
+  46% {
+    opacity: 0.85;
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateX(190%);
+  }
+}
+
+@keyframes aiPipelineMobileMove {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -26px) scale(0.75);
+  }
+
+  18%,
+  78% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    transform: translate(-50%, 42px) scale(1.05);
+  }
+}
+
+@keyframes aiPipelineSweep {
+  0% {
+    opacity: 0;
+    transform: translateX(-90%);
+  }
+
+  25%,
+  62% {
+    opacity: 0.85;
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateX(90%);
+  }
+}
+
+@keyframes aiPipelineOrbit {
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+@keyframes aiPipelineCoreScan {
+  0% {
+    opacity: 0;
+    transform: translateY(-130%) rotate(10deg);
+  }
+
+  34%,
+  66% {
+    opacity: 0.95;
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateY(150%) rotate(10deg);
+  }
+}
+
+@keyframes aiPipelineCorePacket {
+  0% {
+    opacity: 0;
+    transform: translate(-62px, 44px) scale(0.8);
+  }
+
+  18%,
+  74% {
+    opacity: 1;
+  }
+
+  50% {
+    transform: translate(0, 0) scale(1.1);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translate(58px, -44px) scale(0.8);
+  }
+}
+
+@keyframes aiPipelineProgressStep {
+  0%,
+  100% {
+    background: rgba(255, 255, 255, 0.26);
+    transform: scale(0.9);
+  }
+
+  38% {
+    background: #f7b731;
+    box-shadow:
+      0 0 0 6px rgba(247, 183, 49, 0.14),
+      0 0 18px rgba(247, 183, 49, 0.8);
+    transform: scale(1.15);
+  }
+}
+
+@keyframes aiPipelineStepActive {
+  0%,
+  100% {
+    border-color: rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.07);
+    transform: translateY(0);
+  }
+
+  34% {
+    border-color: rgba(247, 183, 49, 0.65);
+    background: rgba(247, 183, 49, 0.16);
+    transform: translateY(-4px);
+  }
+}
+
+@keyframes aiPipelineLogWrite {
+  0%,
+  24% {
+    opacity: 0;
+    clip-path: inset(0 100% 0 0);
+    transform: translateY(5px);
+  }
+
+  58%,
+  100% {
+    opacity: 1;
+    clip-path: inset(0 0 0 0);
+    transform: translateY(0);
+  }
+}
+
+@keyframes aiPipelineOutputBuild {
+  0%,
+  24% {
+    opacity: 0.42;
+    transform: translateX(12px);
+  }
+
+  58%,
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes aiPipelineOutputSweep {
+  0% {
+    opacity: 0;
+    transform: translateX(-120%);
+  }
+
+  45% {
+    opacity: 0.58;
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateX(170%);
+  }
+}
+
+@keyframes aiPipelineTypeLine {
+  0%,
+  26% {
+    opacity: 0.45;
+    transform: scaleX(0.18);
+  }
+
+  58%,
+  100% {
+    opacity: 1;
+    transform: scaleX(1);
+  }
+}
+
+@keyframes aiPipelineLiveDot {
+  0%,
+  100% {
+    opacity: 0.45;
+  }
+
+  50% {
+    opacity: 1;
+    box-shadow: 0 0 14px rgba(52, 211, 153, 0.9);
+  }
+}
+
+.ai-pipeline::before {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(90deg, rgba(23, 34, 59, 0.035) 1px, transparent 1px),
+    linear-gradient(0deg, rgba(23, 34, 59, 0.035) 1px, transparent 1px);
+  background-size: 34px 34px;
+  content: "";
+  mask-image: linear-gradient(to bottom, black, transparent 88%);
+  pointer-events: none;
+}
+
+.ai-pipeline-status-dot,
+.ai-pipeline-live-dot {
+  animation: aiPipelineLiveDot 1.3s ease-in-out infinite;
+}
+
+.ai-pipeline-desktop-flow {
+  position: absolute;
+  inset: 0;
+  z-index: 12;
+  pointer-events: none;
+}
+
+.ai-pipeline-rail {
+  position: absolute;
+  left: 10%;
+  right: 10%;
+  top: 47%;
+  height: 3px;
+  border-radius: 999px;
+  background:
+    linear-gradient(90deg, transparent, rgba(247, 183, 49, 0.8), rgba(36, 84, 214, 0.7), rgba(247, 183, 49, 0.8), transparent),
+    repeating-linear-gradient(90deg, transparent 0 16px, rgba(255, 255, 255, 0.9) 16px 22px);
+  background-size:
+    100% 100%,
+    96px 100%;
+  animation: aiPipelineRailMove 1.2s linear infinite;
+  opacity: 0.9;
+}
+
+.ai-pipeline-packet {
+  position: absolute;
+  top: 47%;
+  z-index: 14;
+  display: block;
+  height: 18px;
+  width: 18px;
+  border-radius: 999px;
+  background: #f7b731;
+  box-shadow:
+    0 0 0 8px rgba(247, 183, 49, 0.15),
+    0 0 24px rgba(247, 183, 49, 0.88),
+    0 0 46px rgba(36, 84, 214, 0.5);
+  animation: aiPipelinePacketTravel 4.8s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+.ai-pipeline-packet-two {
+  animation-delay: 1.6s;
+}
+
+.ai-pipeline-packet-three {
+  animation-delay: 3.2s;
+}
+
+.ai-pipeline-panel {
+  position: relative;
+  z-index: 2;
+}
+
+.ai-pipeline-input-item {
+  animation: aiPipelineInputCycle 4.8s ease-in-out infinite;
+}
+
+.ai-pipeline-input-scan,
+.ai-pipeline-output-sweep {
+  position: absolute;
+  inset: 0;
+  width: 48%;
+  pointer-events: none;
+}
+
+.ai-pipeline-input-scan {
+  background: linear-gradient(90deg, transparent, rgba(247, 183, 49, 0.22), transparent);
+  animation: aiPipelineInputScan 4.8s ease-in-out infinite;
+}
+
+.ai-pipeline-mobile-flow {
+  position: relative;
+  height: 3rem;
+}
+
+.ai-pipeline-mobile-flow::before {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  height: 100%;
+  width: 2px;
+  border-radius: 999px;
+  background: linear-gradient(to bottom, transparent, rgba(247, 183, 49, 0.95), transparent);
+  content: "";
+  transform: translateX(-50%);
+}
+
+.ai-pipeline-mobile-flow span {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  display: block;
+  height: 14px;
+  width: 14px;
+  border-radius: 999px;
+  background: #f7b731;
+  box-shadow:
+    0 0 0 7px rgba(247, 183, 49, 0.14),
+    0 0 24px rgba(247, 183, 49, 0.82);
+  animation: aiPipelineMobileMove 2.6s ease-in-out infinite;
+}
+
+.ai-pipeline-engine-sweep {
+  background: linear-gradient(90deg, transparent, rgba(247, 183, 49, 0.85), transparent);
+  animation: aiPipelineSweep 2.8s ease-in-out infinite;
+}
+
+.ai-pipeline-orbit {
+  animation: aiPipelineOrbit 9s linear infinite;
+}
+
+.ai-pipeline-orbit-reverse {
+  animation-duration: 13s;
+  animation-direction: reverse;
+}
+
+.ai-pipeline-core-scan {
+  position: absolute;
+  inset: -20%;
+  background: linear-gradient(180deg, transparent 30%, rgba(247, 183, 49, 0.28), transparent 70%);
+  pointer-events: none;
+  animation: aiPipelineCoreScan 3.2s ease-in-out infinite;
+}
+
+.ai-pipeline-core-packet {
+  position: absolute;
+  display: block;
+  height: 9px;
+  width: 9px;
+  border-radius: 999px;
+  background: #f7b731;
+  box-shadow: 0 0 16px rgba(247, 183, 49, 0.9);
+  animation: aiPipelineCorePacket 2.6s ease-in-out infinite;
+}
+
+.ai-pipeline-core-packet-b {
+  animation-delay: 1.3s;
+}
+
+.ai-pipeline-progress-dot {
+  display: block;
+  height: 8px;
+  width: 8px;
+  border-radius: 999px;
+  animation: aiPipelineProgressStep 2.1s ease-in-out infinite;
+}
+
+.ai-pipeline-step {
+  animation: aiPipelineStepActive 4.2s ease-in-out infinite;
+}
+
+.ai-pipeline-log {
+  animation: aiPipelineLogWrite 4.8s ease-in-out infinite;
+  white-space: nowrap;
+}
+
+.ai-pipeline-timer {
+  color: #f7b731;
+}
+
+.ai-pipeline-output-card {
+  animation: aiPipelineOutputBuild 5s ease-in-out infinite;
+}
+
+.ai-pipeline-output-sweep {
+  background: linear-gradient(90deg, transparent, rgba(36, 84, 214, 0.12), rgba(247, 183, 49, 0.18), transparent);
+  animation: aiPipelineOutputSweep 5s ease-in-out infinite;
+}
+
+.ai-pipeline-type-line {
+  transform-origin: left center;
+  animation: aiPipelineTypeLine 5s ease-in-out infinite;
+}
+
+@media (max-width: 420px) {
+  .ai-pipeline-log {
+    white-space: normal;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ai-pipeline-status-dot,
+  .ai-pipeline-live-dot,
+  .ai-pipeline-rail,
+  .ai-pipeline-packet,
+  .ai-pipeline-input-item,
+  .ai-pipeline-input-scan,
+  .ai-pipeline-mobile-flow span,
+  .ai-pipeline-engine-sweep,
+  .ai-pipeline-orbit,
+  .ai-pipeline-core-scan,
+  .ai-pipeline-core-packet,
+  .ai-pipeline-progress-dot,
+  .ai-pipeline-step,
+  .ai-pipeline-log,
+  .ai-pipeline-output-card,
+  .ai-pipeline-output-sweep,
+  .ai-pipeline-type-line {
+    animation: none;
+  }
+}
